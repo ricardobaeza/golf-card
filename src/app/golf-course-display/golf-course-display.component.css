@@ -1,0 +1,49 @@
+.playerInput {
+  width: 48px;
+  Height: 30px;
+  display: flex;
+  border: 1px solid #F0F0F0;
+
+}
+.player-block-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 129px;
+  height: 32px;
+  border: 1px solid #F0F0F0;
+}
+
+.golf-block-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 129px;
+  height: 30px;
+  border: 1px solid #F0F0F0;
+}
+.golf-block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 30px;
+  border: 1px solid #F0F0F0;
+}
+
+.info-wrapper {
+  display: flex;
+}
+
+.player-wrapper {
+  display: flex;
+}
+
+.player-score {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 32px;
+  border: 1px solid #F0F0F0;
+}

@@ -1,9 +1,3 @@
-<mat-toolbar id="title" color="primary">
-  <mat-card-title >
-    golf score app
-  </mat-card-title>
-</mat-toolbar>
-
 <mat-card class="center-card">
   <mat-card-title>Choose your course</mat-card-title>
   <mat-card-content>
@@ -15,8 +9,13 @@
       </mat-select>
     </section>
     <section>
-      <mat-select placeholder="Select your Tee Type" >
-        <mat-option *ngFor="let teeBox of selectedCourse?.holes[0].teeBoxes" [value]="teeBox.teeType">{{teeBox.teeType}}</mat-option>
+      <mat-select placeholder="Select your Tee Type" (selectionChange)="logTeeType($event)" >
+        <mat-option *ngFor="let teeBox of selectedCourse?.holes[0].teeBoxes" [value]="teeBox.teeTypeId" >{{teeBox.teeType}}</mat-option>
+      </mat-select>
+    </section>
+    <section class="in-card-cont">
+      <mat-select placeholder="number of players" (selectionChange)="changePlayer($event)">
+        <mat-option *ngFor="let numbers of numberSelect" [value] = 'numbers'>{{numbers}}</mat-option>
       </mat-select>
     </section>
     <section>
@@ -24,6 +23,7 @@
         next
       </button>
     </section>
+
   </mat-card-content>
 
 

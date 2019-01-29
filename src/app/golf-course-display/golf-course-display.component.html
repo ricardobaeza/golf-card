@@ -1,9 +1,63 @@
-<mat-toolbar id="title" color="primary">
-  <mat-card-title>
-    golf score app
-  </mat-card-title>
-</mat-toolbar>
 
 
-<h1>golf score display</h1>
-<pre>{{players | json}}</pre>
+
+
+
+
+<mat-card>
+  <mat-card-title>{{course?.name}}</mat-card-title>
+  <section>
+    <div class="info-wrapper">
+      <div class="golf-block-header">Hole</div>
+      <div class="golf-block" *ngFor="let holes of course?.holes">
+        {{holes.hole}}
+      </div>
+      <div class="golf-block">In</div>
+      <div class="golf-block">Out</div>
+      <div class="golf-block">Total</div>
+
+    </div>
+    <div class="info-wrapper">
+      <div class="golf-block-header">Yards</div>
+      <div class="golf-block" *ngFor="let holes of course?.holes">
+        {{holes.teeBoxes[selectedTeeType].yards}}
+      </div>
+      <div class="golf-block"></div>
+      <div class="golf-block"></div>
+      <div class="golf-block"></div>
+
+    </div>
+    <div class="info-wrapper">
+      <div class="golf-block-header">Par</div>
+      <div class="golf-block" *ngFor="let holes of course?.holes">
+        {{holes.teeBoxes[selectedTeeType].par}}
+      </div>
+      <div class="golf-block"></div>
+      <div class="golf-block"></div>
+      <div class="golf-block"></div>
+
+    </div>
+    <div class="info-wrapper">
+      <div class="golf-block-header">Handicap</div>
+      <div class="golf-block" *ngFor="let holes of course?.holes">
+        {{holes.teeBoxes[selectedTeeType].hcp}}
+      </div>
+      <div class="golf-block"></div>
+      <div class="golf-block"></div>
+      <div class="golf-block"></div>
+
+
+    </div>
+  </section>
+  <section *ngFor="let player of playerArray">
+    <div class="player-wrapper">
+      <div class="player-block-header">{{player.name | json}}</div>
+      <input type="number" [id]="player.name + '_' + hole.hole " *ngFor="let hole of course?.holes" class="playerInput">
+      <div class="player-score"></div>
+      <div class="player-score"></div>
+      <div class="player-score"></div>
+
+
+    </div>
+  </section>
+</mat-card>

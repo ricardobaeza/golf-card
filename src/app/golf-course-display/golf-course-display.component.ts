@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import {DisplayService} from "./golf-course-display.service";
+import {Component, NgZone, OnInit} from '@angular/core';
+import {CourseService} from "../welcome-page/welcome-page.service";
+import {PlayerNamesService} from '../shared/player-names.service';
 
 @Component({
   selector: 'app-golf-course-display',
@@ -7,14 +8,27 @@ import {DisplayService} from "./golf-course-display.service";
   styleUrls: ['./golf-course-display.component.css']
 })
 export class GolfCourseDisplayComponent implements OnInit {
-  public players = [];
-  constructor(private _playerService: DisplayService) { }
+
+  course;
+  players;
+  playerArray: any[] = [];
+  selectedTeeType;
+
+  constructor( private db: CourseService,
+               private zone: NgZone,
+               private playerNamesService: PlayerNamesService) { }
 
   ngOnInit() {
-    this._playerService.getPlayerNames()
-      .subscribe(data => this.players = data);
-
+    this.db.getCourse(this.db.exampleId).subscribe(course => this.course = course);
+    this.zone.run(() => {
+      this.players = this.db.numberOfPlayers;
+    });
+    this.selectedTeeType = this.db.selectedTeeType;
+   this.playerArray = this.playerNamesService.playerArray;
   }
 
+
+
 }
+
 
