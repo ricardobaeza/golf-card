@@ -1,11 +1,11 @@
 <mat-card>
   <mat-card-title>playerNames</mat-card-title>
   <section *ngFor="let player of numberOfPlayers">
-    <p> player{{player + 1}}'s name: {{playerArray[player]?.name}}</p>
+    <p> player {{player + 1}}'s name: {{playerArray[player]?.name}}</p>
   </section>
 
   <mat-form-field>
-      <input placeholder="player name" matInput [(ngModel)]="playerName">
+      <input placeholder="player name" matInput [(ngModel)]="playerName" >
   </mat-form-field>
   <button mat-raised-button (click)="logName()" [disabled]="isButtonDisabled">submit name</button>
   <section>

@@ -1,6 +1,7 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import {CourseService} from "../welcome-page/welcome-page.service";
 import {PlayerNamesService} from '../shared/player-names.service';
+import {IPlayerArray} from '../shared/player-interface';
 
 @Component({
   selector: 'app-golf-course-display',
@@ -11,8 +12,9 @@ export class GolfCourseDisplayComponent implements OnInit {
 
   course;
   players;
-  playerArray: any[] = [];
+  playerArray: IPlayerArray[] = [];
   selectedTeeType;
+  in
 
   constructor( private db: CourseService,
                private zone: NgZone,
@@ -28,7 +30,15 @@ export class GolfCourseDisplayComponent implements OnInit {
   }
 
 
-
+  logScore ($event, hole: any, playerIndex: number) {
+    if (hole <= 9) {
+      this.playerArray[playerIndex].inScore += Number($event.data);
+      this.playerArray[playerIndex].totalScore += Number($event.data);
+    } else {
+      this.playerArray[playerIndex].outScore += Number($event.data);
+      this.playerArray[playerIndex].totalScore += Number($event.data);
+    }
+  }
 }
 
 

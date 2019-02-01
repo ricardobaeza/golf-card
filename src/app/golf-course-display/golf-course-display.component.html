@@ -49,13 +49,13 @@
 
     </div>
   </section>
-  <section *ngFor="let player of playerArray">
+  <section *ngFor="let player of playerArray; let i = index">
     <div class="player-wrapper">
-      <div class="player-block-header">{{player.name | json}}</div>
-      <input type="number" [id]="player.name + '_' + hole.hole " *ngFor="let hole of course?.holes" class="playerInput">
-      <div class="player-score"></div>
-      <div class="player-score"></div>
-      <div class="player-score"></div>
+      <div class="player-block-header">{{player.name}}</div>
+      <input type="number" min="0" [id]="player.name + '_' + hole.hole " *ngFor="let hole of course?.holes" class="playerInput" (input)="logScore($event, hole.hole, i)">
+      <div class="player-score">{{player.inScore}}</div>
+      <div class="player-score">{{player.outScore}}</div>
+      <div class="player-score">{{player.totalScore}}</div>
 
 
     </div>

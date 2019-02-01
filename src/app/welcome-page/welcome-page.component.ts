@@ -23,7 +23,6 @@ export class WelcomePageComponent implements OnInit {
       courses => {
         this.courses = courses;
       },
-      // error1 => this.errorMessage = <any>error
     );
   }
 
@@ -32,6 +31,7 @@ export class WelcomePageComponent implements OnInit {
   }
 
   nextPage () {
+    console.log(this.selectedCourseId);
     this.courseService.exampleId = this.selectedCourseId;
     this.router.navigate(['playerName']);
   }

@@ -22,6 +22,7 @@ import {AngularFireModule} from "@angular/fire";
 import { environment} from "../environments/environment"
 import {AngularFireDatabase} from "@angular/fire/database";
 import { PlayerNameComponent } from './player-name/player-name.component';
+import { DuplicateNameFixerPipe } from './shared/duplicate-name-fixer.pipe';
 
 
 
@@ -39,6 +40,7 @@ const appRoutes:Routes = [
     WelcomePageComponent,
     GolfCourseDisplayComponent,
     PlayerNameComponent,
+    DuplicateNameFixerPipe,
 
   ],
   imports: [
