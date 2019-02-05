@@ -1,24 +1,27 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import {CourseService} from '../welcome-page/welcome-page.service';
 import {PlayerNamesService} from './player-names.service';
 
 @Pipe({
   name: 'duplicateNameFixer'
 })
 export class DuplicateNameFixerPipe implements PipeTransform {
-
-  constructor (private playerService: PlayerNamesService) {}
+  private numberCounter: number;
+  private duplicateArray: string[] = [];
+  constructor (private welcomePageService: CourseService,
+               private playerNamesService: PlayerNamesService) {}
   transform( input: string, args?: any): string {
-    const nameArray = [];
-
-    for (let i = 0; i < this.playerService.playerArray.length; i++) {
-      if (input === this.playerService.playerArray[i].name) {
-        nameArray.push(i);
-      }
+    this.numberCounter = 0;
+    if (input === undefined) {
+      return '';
     }
-    if (nameArray.length > 1) {
-      input = input + '2';
-      return input;
+    for (let i = 0; i < this.playerNamesService.playerArray.length; i++) {
+        if (input === this.playerNamesService.playerArray[i].name) {
+          this.numberCounter + 1;
+        }
     }
-  }
-
-}
+    if ( this.numberCounter > 1) {
+      console.log('duplicate found');
+    }
+    return input;
+  }}

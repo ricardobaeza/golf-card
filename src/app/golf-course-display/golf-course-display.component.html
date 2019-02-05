@@ -51,7 +51,7 @@
   </section>
   <section *ngFor="let player of playerArray; let i = index">
     <div class="player-wrapper">
-      <div class="player-block-header">{{player.name}}</div>
+      <div class="player-block-header">{{player.name | duplicateNameFixer }}</div>
       <input type="number" min="0" [id]="player.name + '_' + hole.hole " *ngFor="let hole of course?.holes" class="playerInput" (input)="logScore($event, hole.hole, i)">
       <div class="player-score">{{player.inScore}}</div>
       <div class="player-score">{{player.outScore}}</div>
