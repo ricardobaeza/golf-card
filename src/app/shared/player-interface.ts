@@ -3,6 +3,5 @@ export interface IPlayerArray {
   inScore: number;
   outScore: number;
   totalScore: number;
-  totalScoreArray: number[];
   courseId: number;
 }

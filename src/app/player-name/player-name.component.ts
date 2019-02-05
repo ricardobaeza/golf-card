@@ -27,7 +27,7 @@ export class PlayerNameComponent implements OnInit {
     if (this.playerArray.length === this.numberOfPlayers.length) {
       this.isButtonDisabled = true;
     } else  {
-      this.playerArray.push({ name: this.playerName, inScore: 0, outScore: 0, totalScore: 0, courseId: this.courseId, totalScoreArray: [] });
+      this.playerArray.push({ name: this.playerName, inScore: 0, outScore: 0, totalScore: 0, courseId: this.courseId });
       console.log(this.playerArray);
       this.playerName = '';
     }

@@ -23,6 +23,7 @@ import { environment} from "../environments/environment"
 import {AngularFireDatabase} from "@angular/fire/database";
 import { PlayerNameComponent } from './player-name/player-name.component';
 import { DuplicateNameFixerPipe } from './shared/duplicate-name-fixer.pipe';
+import {AngularFirestore} from '@angular/fire/firestore';
 
 
 
@@ -66,7 +67,7 @@ const appRoutes:Routes = [
     AngularFireModule
 
   ],
-  providers: [ AngularFireDatabase ],
+  providers: [ AngularFirestore ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

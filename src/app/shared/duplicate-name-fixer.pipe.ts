@@ -17,11 +17,13 @@ export class DuplicateNameFixerPipe implements PipeTransform {
     }
     for (let i = 0; i < this.playerNamesService.playerArray.length; i++) {
         if (input === this.playerNamesService.playerArray[i].name) {
-          this.numberCounter + 1;
+          this.duplicateArray.push(input);
         }
+        if (this.duplicateArray.length > 1) {
+          return input + ' 2';
+        }
+        console.log('the length of the array is ' + this.duplicateArray.length);
+        return input;
+      }
     }
-    if ( this.numberCounter > 1) {
-      console.log('duplicate found');
-    }
-    return input;
-  }}
+  }
