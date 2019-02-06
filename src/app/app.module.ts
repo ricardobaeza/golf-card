@@ -28,11 +28,12 @@ import { CreatorComponent } from './creator/creator.component';
 
 
 
-const appRoutes:Routes = [
+const appRoutes: Routes = [
+  {path: 'creatorPage', component: CreatorComponent},
   {path: 'welcomePage', component: WelcomePageComponent },
   {path: 'golfDisplay', component: GolfCourseDisplayComponent},
   {path: 'playerName', component: PlayerNameComponent},
-  {path: '', redirectTo: '/welcomePage', pathMatch: 'full'}
+  {path: '', redirectTo: '/creatorPage', pathMatch: 'full'}
 ];
 
 
