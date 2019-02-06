@@ -32,14 +32,16 @@ export class GolfCourseDisplayComponent implements OnInit {
   }
 
 
-  logScore ($event, hole: any, playerIndex: number) {
-    Math.abs($event.data);
+  logScore (test, hole: any, playerIndex: number) {
+    console.log('the score has been logged');
+    console.log(test);
+    Math.abs(test);
     if (hole <= 9) {
-      this.playerArray[playerIndex].inScore += Number($event.data);
-      this.playerArray[playerIndex].totalScore += Number($event.data);
+      this.playerArray[playerIndex].inScore += Number(test);
+      this.playerArray[playerIndex].totalScore += Number(test);
     } else {
-      this.playerArray[playerIndex].outScore += Number($event.data);
-      this.playerArray[playerIndex].totalScore += Number($event.data);
+      this.playerArray[playerIndex].outScore += Number(test);
+      this.playerArray[playerIndex].totalScore += Number(test);
     }
   }
   postGame () {
