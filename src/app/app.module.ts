@@ -24,6 +24,7 @@ import {AngularFireDatabase} from "@angular/fire/database";
 import { PlayerNameComponent } from './player-name/player-name.component';
 import { DuplicateNameFixerPipe } from './shared/duplicate-name-fixer.pipe';
 import {AngularFirestore} from '@angular/fire/firestore';
+import { CreatorComponent } from './creator/creator.component';
 
 
 
@@ -42,6 +43,7 @@ const appRoutes:Routes = [
     GolfCourseDisplayComponent,
     PlayerNameComponent,
     DuplicateNameFixerPipe,
+    CreatorComponent,
 
   ],
   imports: [
